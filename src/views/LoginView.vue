@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import router from '../router/index'
-import { skip } from '../router/authentic'
+import { skip } from '../router/index'
 
 const formData = ref({
   username: '',

@@ -1,5 +1,5 @@
 <script setup>
-import { skip } from '../router/authentic'
+import { skip } from '../router/index'
 import router from '../router/index'
 const { isAuthenticated } = skip()
 const logOut = () => {

@@ -2,8 +2,20 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
 import LoginView from '../views/LoginView.vue'
-import { skip } from './authentic'
-const { isAuthenticated } = skip()
+//import { skip } from './authentic'
+//const { isAuthenticated } = skip()
+import { ref } from 'vue'
+const isAuthenticated = ref(false)
+export function skip() {
+  const login = () => {
+    isAuthenticated.value = true
+    //router.push('/about')
+  }
+  const logout = () => {
+    isAuthenticated.value = false
+  }
+  return { isAuthenticated, login, logout }
+}
 const routes = [
   {
     path: '/',
@@ -42,13 +54,5 @@ router.beforeEach((to, from, next) => {
     next()
   }
 })
-// router.beforeEach((to, from, next) => {
-//   // Perform logic before every route change
-//   if (to.name == 'About') {
-//     alert('You should login first!')
-//     next({ name: 'Login' })
-//   } else {
-//     next({ name: 'About' })
-//   }
-// })
+
 export default router
