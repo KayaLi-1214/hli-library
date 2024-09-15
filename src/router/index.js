@@ -5,7 +5,6 @@ import LoginView from '../views/LoginView.vue'
 import FirebaseSigninView from '@/views/FirebaseSigninView.vue'
 import FirebaseRegisterView from '@/views/FirebaseRegisterView.vue'
 import AddBookView from '@/views/AddBookView.vue'
-import BookListView from '../views/BookListView.vue'
 import EditBookView from '@/views/EditBookView.vue'
 //import { skip } from './authentic'
 //const { isAuthenticated } = skip()
@@ -52,12 +51,6 @@ const routes = [
     name: 'AddBook',
     component: AddBookView
   },
-  {
-    path: '/booklist',
-    name: 'BookList',
-    component: BookListView
-  },
-
   {
     path: '/editBook/:bookid',
     name: 'EditBook',

@@ -97,7 +97,7 @@ import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import db from '../firebase/init.js'
 import { setDoc, getDoc, doc } from 'firebase/firestore'
-import BookList from '../components/BookList.vue'
+//import BookList from '../components/BookList.vue'
 const route = useRoute()
 const bookId = route.params.bookid
 
