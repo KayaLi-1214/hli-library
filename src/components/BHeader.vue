@@ -1,11 +1,25 @@
 <script setup>
+import { getAuth, signOut } from 'firebase/auth'
 import { skip } from '../router/index'
 import router from '../router/index'
-const { isAuthenticated } = skip()
-const logOut = () => {
-  isAuthenticated.value = false
-  alert('Log Out!')
-  router.push({ name: 'Login' })
+// const { isAuthenticated } = skip()
+// const logOut = () => {
+//   isAuthenticated.value = false
+//   alert('Log Out!')
+//   router.push({ name: 'Login' })
+// }
+const auth = getAuth()
+const FirebaseLogOut = () => {
+  signOut(auth)
+    .then(() => {
+      alert('log out success')
+      console.log(auth.currentUser)
+      console.log('log out success')
+      console.log(auth.currentUser)
+    })
+    .catch((error) => {
+      console.log('log out error', error)
+    })
 }
 </script>
 
@@ -24,13 +38,37 @@ const logOut = () => {
         <li class="nav-item">
           <router-link to="/about" class="nav-link" active-class="active">About</router-link>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <router-link to="/login" class="nav-link" active-class="active">Login</router-link>
+        </li> -->
+        <li class="nav-item">
+          <router-link to="/FireLogin" class="nav-link" active-class="active"
+            >FireLogin</router-link
+          >
         </li>
         <li class="nav-item">
+          <router-link to="/FireRegister" class="nav-link" active-class="active"
+            >FireRegister</router-link
+          >
+        </li>
+        <!-- <li class="nav-item">
           <button to="/logout" class="nav-link" @click="logOut" active-class="active">
             Logout
           </button>
+        </li> -->
+        <li class="nav-item">
+          <button to="/logout" class="nav-link" @click="FirebaseLogOut" active-class="active">
+            FirebaseLogOut
+          </button>
+        </li>
+        <li class="nav-item">
+          <router-link to="/addbook" class="nav-link" active-class="active">Add Book</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/editBook" class="nav-link" active-class="active">Edit Book</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/booklist" class="nav-link" active-class="active">Book List</router-link>
         </li>
       </ul>
     </header>
