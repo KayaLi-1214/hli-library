@@ -2,10 +2,20 @@
 import JSONLab from './components/JSONLab.vue'
 import BHeader from './components/BHeader.vue'
 import LibraryRegistrationForm from './views/HomeView.vue'
+import CountBookAPI from './views/CountBookAPI.vue'
+import { useRoute } from 'vue-router'
+import { computed } from 'vue'
+
+const route = useRoute()
+
+// Use computed to determine if header should be shown
+const showHeader = computed(() => {
+  return route.name !== 'CountBookAPI'
+})
 </script>
 
 <template>
-  <header>
+  <header v-if="showHeader">
     <BHeader />
   </header>
 
