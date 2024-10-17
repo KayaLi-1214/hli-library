@@ -36,9 +36,7 @@ const iconUrl = ref('')
 const temperature = ref('')
 const weatherData = ref('')
 const searchByCity = async () => {
-  //const url = `http://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=${apikey}
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=${apikey}`;
-`
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=${apikey}`
   await fetchWeatherData(url)
 }
 
@@ -49,7 +47,7 @@ const fetchCurrentLocationWeather = async () => {
     navigator.geolocation.getCurrentPosition(async (position) => {
       const { latitude, longitude } = position.coords
       //API link to obtain the current weather based on the current location browser identified
-      const url = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apikey}`
+      const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apikey}`
       //await means wait for the fetchWeatherData method to complete before proceeding
       await fetchWeatherData(url)
     })
@@ -62,7 +60,7 @@ const fetchWeatherData = async (url) => {
     weatherData.value = response.data
     console.log('data', response.data)
     iconUrl.value = response.data
-      ? `http://api.openweathermap.org/img/w/${response.data.weather[0].icon}.png`
+      ? `https://api.openweathermap.org/img/w/${response.data.weather[0].icon}.png`
       : null
     temperature.value = response.data ? Math.floor(response.data.main.temp - 273) : null
   } catch (error) {
