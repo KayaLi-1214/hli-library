@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
@@ -87,7 +88,7 @@ const routes = [
 // })
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.VITE_BASE_URL),
+  history: createWebHistory(process.env.BASE_URL),
   routes
 })
 
@@ -108,3 +109,4 @@ router.beforeEach((to, from, next) => {
 })
 
 export default router
+//import.meta.env.VITE_BASE_URL
