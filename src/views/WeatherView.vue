@@ -36,7 +36,9 @@ const iconUrl = ref('')
 const temperature = ref('')
 const weatherData = ref('')
 const searchByCity = async () => {
-  const url = `http://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=${apikey}`
+  //const url = `http://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=${apikey}
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=${apikey}`;
+`
   await fetchWeatherData(url)
 }
 
